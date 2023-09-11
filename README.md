@@ -34,6 +34,13 @@ RabbitMQ can handle assure that millions of job-postings are handled while also 
 6. Add the urls to redis: `python3 url_seed.py`
 7. Running the scrapy project: `scrapy crawl jobspider` 
 
+(Everytime you want to test you need to perform steps 6 and 7)
+
+
+### Enable Duplicated Filtering
+To enable duplicated filtering, we replace the step .7 from the section above with `scrapy crawl jobspider -s JOBDIR=crawls/jobspider`
+From now on, crawls holds jobs previously added. To test that no message is being posted on the rabbitmq queue, simply access the rabbitmq console on localhost:15672. 
+
 
 ### Current limitations and bottlenecks:
 1. The current architecture provides duplication handling for job postings via spider.state. This means that if we run several scrappers of the same type, it won't guarantee duplcation handling.

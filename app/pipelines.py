@@ -44,11 +44,14 @@ class RabbitMQPipeline(object):
 
     def process_item(self, item, spider):
         data = self.encoder.encode(item)
+
         #I realize that routing key and queue are not the same, however for testing purposes it should be enough
         self.channel.basic_publish(
             exchange="",
             routing_key=self.queue,
             body=data,
         )
-            
+
         return item
+
+   
