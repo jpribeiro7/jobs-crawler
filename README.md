@@ -58,3 +58,6 @@ To solve #3 we might need to timeout requests or implement proxies.
 ### Continuous Integration and Continuous Delivery
 Github actions are used to build and test the project. Deployment wasn't done in time.
 
+<!-- Pytest Coverage Comment:Begin -->
+<!-- Pytest Coverage Comment:End -->
+
